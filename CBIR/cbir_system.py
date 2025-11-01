@@ -1,12 +1,3 @@
-"""
-Content-Based Image Retrieval (CBIR) System
-============================================
-A modular CBIR implementation using color moments, HSV histograms, and texture features.
-
-Author: Optimized from notebook
-Date: October 31, 2025
-"""
-
 import os
 from typing import List, Tuple, Optional, Dict
 from dataclasses import dataclass

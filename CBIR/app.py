@@ -1,10 +1,3 @@
-"""
-CBIR Web Interface using Streamlit
-====================================
-A dynamic web interface for Content-Based Image Retrieval system.
-
-Run with: streamlit run app.py
-"""
 
 import streamlit as st
 import cv2
@@ -25,8 +18,8 @@ from cbir_system import (
 
 # Page configuration
 st.set_page_config(
-    page_title="CBIR Demo - Content-Based Image Retrieval",
-    page_icon="🔍",
+    page_title="Content-Based Image Retrieval",
+    page_icon="",
     layout="wide",
     initial_sidebar_state="expanded",
 )
@@ -35,7 +28,7 @@ st.set_page_config(
 st.markdown(
     """
     <style>
-    .main-header {
+    .main-header { 
         font-size: 3rem;
         color: #1E88E5;
         text-align: center;
@@ -90,7 +83,7 @@ def convert_pil_to_cv2(pil_img):
 def main():
     # Header
     st.markdown(
-        '<h1 class="main-header">🔍 CBIR Demo System</h1>', unsafe_allow_html=True
+        '<h1 class="main-header">Content-Based Image Retrieval</h1>', unsafe_allow_html=True
     )
     st.markdown(
         "**Content-Based Image Retrieval** - Find similar images using "
@@ -113,8 +106,9 @@ def main():
             "Descriptor Type",
             options=[
                 "Color Moments Only (6D)",
-                "Color + Histogram (30D)",
-                "Full: Color + Histogram + Texture (34D)",
+                "Color Histogram (30D)",
+                "Texture (34D)",
+                "Full: Color + Histogram + Texture (34D)"
             ],
             index=2,
             help="Choose which features to extract from images",
@@ -123,7 +117,7 @@ def main():
         # Map selection to DescriptorType
         descriptor_map = {
             "Color Moments Only (6D)": DescriptorType.COLOR_ONLY,
-            "Color + Histogram (30D)": DescriptorType.COLOR_HISTOGRAM,
+            "Color Histogram (30D)": DescriptorType.COLOR_HISTOGRAM,
             "Full: Color + Histogram + Texture (34D)": DescriptorType.FULL,
         }
         descriptor_type = descriptor_map[descriptor_option]
